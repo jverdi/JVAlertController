@@ -16,7 +16,7 @@ Why
 Consider the following scenario:  
 1. You wish to distribute a static library.  
 2. You wish for said static library to support iOS 7.  
-3. Your static library includes.  
+3. Your static library provides UI flows which include alerts or action sheets.  
 4. You also wish for that static library to be available for use in iOS 8 extensions.  
 
 Problem:  
