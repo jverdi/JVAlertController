@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FAA13AE1A6AC94A00743EC6 /* TransparencyTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA13AD1A6AC94A00743EC6 /* TransparencyTestController.m */; };
+		7FAA13B11A6C47CB00743EC6 /* test_pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAA13AF1A6C47CB00743EC6 /* test_pattern.png */; };
+		7FAA13B21A6C47CB00743EC6 /* test_pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAA13B01A6C47CB00743EC6 /* test_pattern@2x.png */; };
+		7FAA13B61A6C4B2200743EC6 /* JVAlertControllerBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA13B51A6C4B2200743EC6 /* JVAlertControllerBackgroundView.m */; };
+		7FBE462C1A60E077007FE602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE462B1A60E077007FE602 /* main.m */; };
+		7FBE462F1A60E077007FE602 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE462E1A60E077007FE602 /* AppDelegate.m */; };
+		7FBE46321A60E077007FE602 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46311A60E077007FE602 /* ViewController.m */; };
+		7FBE46351A60E077007FE602 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE46331A60E077007FE602 /* Main.storyboard */; };
+		7FBE46371A60E077007FE602 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE46361A60E077007FE602 /* Images.xcassets */; };
+		7FBE463A1A60E077007FE602 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE46381A60E077007FE602 /* LaunchScreen.xib */; };
+		7FBE46461A60E077007FE602 /* JVAlertControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46451A60E077007FE602 /* JVAlertControllerTests.m */; };
+		7FBE46521A60E0B7007FE602 /* JVAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46511A60E0B7007FE602 /* JVAlertController.m */; };
+		7FBE465B1A621EB7007FE602 /* JVAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE465A1A621EB7007FE602 /* JVAlertAction.m */; };
+		7FBE465E1A621F31007FE602 /* JVAlertControllerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE465D1A621F31007FE602 /* JVAlertControllerButton.m */; };
+		7FBE46661A62243F007FE602 /* JVAlertControllerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46651A62243F007FE602 /* JVAlertControllerTextField.m */; };
+		7FBE46691A622C57007FE602 /* JVPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46681A622C57007FE602 /* JVPopoverPresentationController.m */; };
+		7FBE46721A64E693007FE602 /* JVAlertTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46711A64E693007FE602 /* JVAlertTransitionDelegate.m */; };
+		7FBE46751A64E858007FE602 /* JVActionSheetTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46741A64E858007FE602 /* JVActionSheetTransitionDelegate.m */; };
+		7FBE46811A66558F007FE602 /* UIViewController+JVAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46801A66558F007FE602 /* UIViewController+JVAlertController.m */; };
+		7FBE46841A68BED4007FE602 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE46821A68BED4007FE602 /* bg.png */; };
+		7FBE46851A68BED4007FE602 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE46831A68BED4007FE602 /* bg@2x.png */; };
+		7FBE468A1A6A207A007FE602 /* JVAlertControllerStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE46891A6A207A007FE602 /* JVAlertControllerStyles.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FBE46401A60E077007FE602 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FBE461E1A60E077007FE602 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FBE46251A60E077007FE602;
+			remoteInfo = JVAlertController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7FAA13AC1A6AC94A00743EC6 /* TransparencyTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparencyTestController.h; sourceTree = "<group>"; };
+		7FAA13AD1A6AC94A00743EC6 /* TransparencyTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparencyTestController.m; sourceTree = "<group>"; };
+		7FAA13AF1A6C47CB00743EC6 /* test_pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_pattern.png; sourceTree = "<group>"; };
+		7FAA13B01A6C47CB00743EC6 /* test_pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_pattern@2x.png"; sourceTree = "<group>"; };
+		7FAA13B31A6C497600743EC6 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		7FAA13B41A6C4B2200743EC6 /* JVAlertControllerBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JVAlertControllerBackgroundView.h; path = JVAlertController/JVAlertControllerBackgroundView.h; sourceTree = "<group>"; };
+		7FAA13B51A6C4B2200743EC6 /* JVAlertControllerBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVAlertControllerBackgroundView.m; path = JVAlertController/JVAlertControllerBackgroundView.m; sourceTree = "<group>"; };
+		7FAA13B91A6CC43000743EC6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7FAA13BB1A6CC9CD00743EC6 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7FAA13BD1A6CC9FB00743EC6 /* JVAlertController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JVAlertController.podspec; sourceTree = "<group>"; };
+		7FBE46261A60E077007FE602 /* JVAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JVAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FBE462A1A60E077007FE602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FBE462B1A60E077007FE602 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FBE462D1A60E077007FE602 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7FBE462E1A60E077007FE602 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7FBE46301A60E077007FE602 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7FBE46311A60E077007FE602 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7FBE46341A60E077007FE602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7FBE46361A60E077007FE602 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7FBE46391A60E077007FE602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7FBE463F1A60E077007FE602 /* JVAlertControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JVAlertControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FBE46441A60E077007FE602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FBE46451A60E077007FE602 /* JVAlertControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVAlertControllerTests.m; sourceTree = "<group>"; };
+		7FBE46511A60E0B7007FE602 /* JVAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVAlertController.m; path = JVAlertController/JVAlertController.m; sourceTree = "<group>"; };
+		7FBE465A1A621EB7007FE602 /* JVAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVAlertAction.m; path = JVAlertController/JVAlertAction.m; sourceTree = "<group>"; };
+		7FBE465D1A621F31007FE602 /* JVAlertControllerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVAlertControllerButton.m; path = JVAlertController/JVAlertControllerButton.m; sourceTree = "<group>"; };
+		7FBE46621A62216E007FE602 /* JVAlertAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JVAlertAction.h; path = JVAlertController/JVAlertAction.h; sourceTree = "<group>"; };
+		7FBE46631A6221D5007FE602 /* JVAlertControllerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JVAlertControllerButton.h; path = JVAlertController/JVAlertControllerButton.h; sourceTree = "<group>"; };
+		7FBE46641A62243F007FE602 /* JVAlertControllerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JVAlertControllerTextField.h; path = JVAlertController/JVAlertControllerTextField.h; sourceTree = "<group>"; };
+		7FBE46651A62243F007FE602 /* JVAlertControllerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVAlertControllerTextField.m; path = JVAlertController/JVAlertControllerTextField.m; sourceTree = "<group>"; };
+		7FBE46681A622C57007FE602 /* JVPopoverPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVPopoverPresentationController.m; path = JVAlertController/JVPopoverPresentationController.m; sourceTree = "<group>"; };
+		7FBE46701A64E693007FE602 /* JVAlertTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JVAlertTransitionDelegate.h; path = JVAlertController/JVAlertTransitionDelegate.h; sourceTree = "<group>"; };
+		7FBE46711A64E693007FE602 /* JVAlertTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVAlertTransitionDelegate.m; path = JVAlertController/JVAlertTransitionDelegate.m; sourceTree = "<group>"; };
+		7FBE46731A64E858007FE602 /* JVActionSheetTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JVActionSheetTransitionDelegate.h; path = JVAlertController/JVActionSheetTransitionDelegate.h; sourceTree = "<group>"; };
+		7FBE46741A64E858007FE602 /* JVActionSheetTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVActionSheetTransitionDelegate.m; path = JVAlertController/JVActionSheetTransitionDelegate.m; sourceTree = "<group>"; };
+		7FBE467F1A66558F007FE602 /* UIViewController+JVAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JVAlertController.h"; path = "JVAlertController/UIViewController+JVAlertController.h"; sourceTree = "<group>"; };
+		7FBE46801A66558F007FE602 /* UIViewController+JVAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JVAlertController.m"; path = "JVAlertController/UIViewController+JVAlertController.m"; sourceTree = "<group>"; };
+		7FBE46821A68BED4007FE602 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		7FBE46831A68BED4007FE602 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		7FBE46881A6A207A007FE602 /* JVAlertControllerStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JVAlertControllerStyles.h; path = JVAlertController/JVAlertControllerStyles.h; sourceTree = "<group>"; };
+		7FBE46891A6A207A007FE602 /* JVAlertControllerStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVAlertControllerStyles.m; path = JVAlertController/JVAlertControllerStyles.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7FBE46231A60E077007FE602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FBE463C1A60E077007FE602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7FBE461D1A60E077007FE602 = {
+			isa = PBXGroup;
+			children = (
+				7FAA13BB1A6CC9CD00743EC6 /* LICENSE */,
+				7FAA13B91A6CC43000743EC6 /* README.md */,
+				7FAA13BD1A6CC9FB00743EC6 /* JVAlertController.podspec */,
+				7FBE46281A60E077007FE602 /* JVAlertController */,
+				7FBE46421A60E077007FE602 /* JVAlertControllerTests */,
+				7FBE46271A60E077007FE602 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7FBE46271A60E077007FE602 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE46261A60E077007FE602 /* JVAlertController.app */,
+				7FBE463F1A60E077007FE602 /* JVAlertControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7FBE46281A60E077007FE602 /* JVAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE462D1A60E077007FE602 /* AppDelegate.h */,
+				7FBE462E1A60E077007FE602 /* AppDelegate.m */,
+				7FAA13B31A6C497600743EC6 /* Config.h */,
+				7FAA13AC1A6AC94A00743EC6 /* TransparencyTestController.h */,
+				7FAA13AD1A6AC94A00743EC6 /* TransparencyTestController.m */,
+				7FBE46301A60E077007FE602 /* ViewController.h */,
+				7FBE46311A60E077007FE602 /* ViewController.m */,
+				7FBE464F1A60E081007FE602 /* JVAlertController */,
+				7FBE46291A60E077007FE602 /* Supporting Files */,
+			);
+			path = JVAlertController;
+			sourceTree = "<group>";
+		};
+		7FBE46291A60E077007FE602 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE46821A68BED4007FE602 /* bg.png */,
+				7FBE46831A68BED4007FE602 /* bg@2x.png */,
+				7FBE46361A60E077007FE602 /* Images.xcassets */,
+				7FBE462A1A60E077007FE602 /* Info.plist */,
+				7FBE46381A60E077007FE602 /* LaunchScreen.xib */,
+				7FBE462B1A60E077007FE602 /* main.m */,
+				7FBE46331A60E077007FE602 /* Main.storyboard */,
+				7FAA13AF1A6C47CB00743EC6 /* test_pattern.png */,
+				7FAA13B01A6C47CB00743EC6 /* test_pattern@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FBE46421A60E077007FE602 /* JVAlertControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE46451A60E077007FE602 /* JVAlertControllerTests.m */,
+				7FBE46431A60E077007FE602 /* Supporting Files */,
+			);
+			path = JVAlertControllerTests;
+			sourceTree = "<group>";
+		};
+		7FBE46431A60E077007FE602 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE46441A60E077007FE602 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FBE464F1A60E081007FE602 /* JVAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE46731A64E858007FE602 /* JVActionSheetTransitionDelegate.h */,
+				7FBE46741A64E858007FE602 /* JVActionSheetTransitionDelegate.m */,
+				7FBE46621A62216E007FE602 /* JVAlertAction.h */,
+				7FBE465A1A621EB7007FE602 /* JVAlertAction.m */,
+				7FBE46511A60E0B7007FE602 /* JVAlertController.m */,
+				7FAA13B41A6C4B2200743EC6 /* JVAlertControllerBackgroundView.h */,
+				7FAA13B51A6C4B2200743EC6 /* JVAlertControllerBackgroundView.m */,
+				7FBE46631A6221D5007FE602 /* JVAlertControllerButton.h */,
+				7FBE465D1A621F31007FE602 /* JVAlertControllerButton.m */,
+				7FBE46881A6A207A007FE602 /* JVAlertControllerStyles.h */,
+				7FBE46891A6A207A007FE602 /* JVAlertControllerStyles.m */,
+				7FBE46641A62243F007FE602 /* JVAlertControllerTextField.h */,
+				7FBE46651A62243F007FE602 /* JVAlertControllerTextField.m */,
+				7FBE46701A64E693007FE602 /* JVAlertTransitionDelegate.h */,
+				7FBE46711A64E693007FE602 /* JVAlertTransitionDelegate.m */,
+				7FBE46681A622C57007FE602 /* JVPopoverPresentationController.m */,
+				7FBE467F1A66558F007FE602 /* UIViewController+JVAlertController.h */,
+				7FBE46801A66558F007FE602 /* UIViewController+JVAlertController.m */,
+			);
+			name = JVAlertController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FBE46251A60E077007FE602 /* JVAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FBE46491A60E077007FE602 /* Build configuration list for PBXNativeTarget "JVAlertController" */;
+			buildPhases = (
+				7FBE46221A60E077007FE602 /* Sources */,
+				7FBE46231A60E077007FE602 /* Frameworks */,
+				7FBE46241A60E077007FE602 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JVAlertController;
+			productName = JVAlertController;
+			productReference = 7FBE46261A60E077007FE602 /* JVAlertController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FBE463E1A60E077007FE602 /* JVAlertControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FBE464C1A60E077007FE602 /* Build configuration list for PBXNativeTarget "JVAlertControllerTests" */;
+			buildPhases = (
+				7FBE463B1A60E077007FE602 /* Sources */,
+				7FBE463C1A60E077007FE602 /* Frameworks */,
+				7FBE463D1A60E077007FE602 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FBE46411A60E077007FE602 /* PBXTargetDependency */,
+			);
+			name = JVAlertControllerTests;
+			productName = JVAlertControllerTests;
+			productReference = 7FBE463F1A60E077007FE602 /* JVAlertControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7FBE461E1A60E077007FE602 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Eesel LLC";
+				TargetAttributes = {
+					7FBE46251A60E077007FE602 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					7FBE463E1A60E077007FE602 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 7FBE46251A60E077007FE602;
+					};
+				};
+			};
+			buildConfigurationList = 7FBE46211A60E077007FE602 /* Build configuration list for PBXProject "JVAlertController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7FBE461D1A60E077007FE602;
+			productRefGroup = 7FBE46271A60E077007FE602 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7FBE46251A60E077007FE602 /* JVAlertController */,
+				7FBE463E1A60E077007FE602 /* JVAlertControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FBE46241A60E077007FE602 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBE46351A60E077007FE602 /* Main.storyboard in Resources */,
+				7FBE463A1A60E077007FE602 /* LaunchScreen.xib in Resources */,
+				7FAA13B11A6C47CB00743EC6 /* test_pattern.png in Resources */,
+				7FBE46841A68BED4007FE602 /* bg.png in Resources */,
+				7FBE46371A60E077007FE602 /* Images.xcassets in Resources */,
+				7FBE46851A68BED4007FE602 /* bg@2x.png in Resources */,
+				7FAA13B21A6C47CB00743EC6 /* test_pattern@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FBE463D1A60E077007FE602 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FBE46221A60E077007FE602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBE465B1A621EB7007FE602 /* JVAlertAction.m in Sources */,
+				7FBE46321A60E077007FE602 /* ViewController.m in Sources */,
+				7FAA13AE1A6AC94A00743EC6 /* TransparencyTestController.m in Sources */,
+				7FBE465E1A621F31007FE602 /* JVAlertControllerButton.m in Sources */,
+				7FBE46691A622C57007FE602 /* JVPopoverPresentationController.m in Sources */,
+				7FBE468A1A6A207A007FE602 /* JVAlertControllerStyles.m in Sources */,
+				7FBE46721A64E693007FE602 /* JVAlertTransitionDelegate.m in Sources */,
+				7FAA13B61A6C4B2200743EC6 /* JVAlertControllerBackgroundView.m in Sources */,
+				7FBE462F1A60E077007FE602 /* AppDelegate.m in Sources */,
+				7FBE46661A62243F007FE602 /* JVAlertControllerTextField.m in Sources */,
+				7FBE46521A60E0B7007FE602 /* JVAlertController.m in Sources */,
+				7FBE46751A64E858007FE602 /* JVActionSheetTransitionDelegate.m in Sources */,
+				7FBE462C1A60E077007FE602 /* main.m in Sources */,
+				7FBE46811A66558F007FE602 /* UIViewController+JVAlertController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FBE463B1A60E077007FE602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBE46461A60E077007FE602 /* JVAlertControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FBE46411A60E077007FE602 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FBE46251A60E077007FE602 /* JVAlertController */;
+			targetProxy = 7FBE46401A60E077007FE602 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7FBE46331A60E077007FE602 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FBE46341A60E077007FE602 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7FBE46381A60E077007FE602 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FBE46391A60E077007FE602 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7FBE46471A60E077007FE602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7FBE46481A60E077007FE602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7FBE464A1A60E077007FE602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = JVAlertController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7FBE464B1A60E077007FE602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = JVAlertController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7FBE464D1A60E077007FE602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JVAlertControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JVAlertController.app/JVAlertController";
+			};
+			name = Debug;
+		};
+		7FBE464E1A60E077007FE602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JVAlertControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JVAlertController.app/JVAlertController";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7FBE46211A60E077007FE602 /* Build configuration list for PBXProject "JVAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FBE46471A60E077007FE602 /* Debug */,
+				7FBE46481A60E077007FE602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FBE46491A60E077007FE602 /* Build configuration list for PBXNativeTarget "JVAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FBE464A1A60E077007FE602 /* Debug */,
+				7FBE464B1A60E077007FE602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FBE464C1A60E077007FE602 /* Build configuration list for PBXNativeTarget "JVAlertControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FBE464D1A60E077007FE602 /* Debug */,
+				7FBE464E1A60E077007FE602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7FBE461E1A60E077007FE602 /* Project object */;
+}
