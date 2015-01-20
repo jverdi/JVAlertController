@@ -61,6 +61,11 @@
           "movt %0, :upper16:(L_OBJC_CLASS_UIAlertAction-(LPC0+4))\n"
           "LPC0: add %0, pc" : "=r"(UIAlertActionClassRef)
           );
+#elif TARGET_CPU_ARM64
+    __asm(
+          "adrp %0, L_OBJC_CLASS_UIAlertAction@PAGE\n"
+          "add  %0, %0, L_OBJC_CLASS_UIAlertAction@PAGEOFF" : "=r"(UIAlertActionClassRef)
+          );
 #elif TARGET_CPU_X86_64
     __asm("leaq L_OBJC_CLASS_UIAlertAction(%%rip), %0" : "=r"(UIAlertActionClassRef));
 #elif TARGET_CPU_X86
@@ -85,7 +90,7 @@
 
 __asm(
 #if defined(__OBJC2__) && __OBJC2__
-    ".section        __DATA,__objc_classrefs,regular,no_dead_strip\n"
+      ".section        __DATA,__objc_classrefs,regular,no_dead_strip\n"
     #if	TARGET_RT_64_BIT
       ".align          3\n"
       "L_OBJC_CLASS_UIAlertAction:\n"
@@ -96,13 +101,13 @@ __asm(
       ".long           _OBJC_CLASS_$_UIAlertAction\n"
     #endif
 #else
-    ".section        __TEXT,__cstring,cstring_literals\n"
-    "L_OBJC_CLASS_NAME_UIAlertAction:\n"
-    ".asciz          \"UIAlertAction\"\n"
-    ".section        __OBJC,__cls_refs,literal_pointers,no_dead_strip\n"
-    ".align          2\n"
-    "L_OBJC_CLASS_UIAlertAction:\n"
-    ".long           L_OBJC_CLASS_NAME_UIAlertAction\n"
+      ".section        __TEXT,__cstring,cstring_literals\n"
+      "L_OBJC_CLASS_NAME_UIAlertAction:\n"
+      ".asciz          \"UIAlertAction\"\n"
+      ".section        __OBJC,__cls_refs,literal_pointers,no_dead_strip\n"
+      ".align          2\n"
+      "L_OBJC_CLASS_UIAlertAction:\n"
+      ".long           L_OBJC_CLASS_NAME_UIAlertAction\n"
 #endif
-    ".weak_reference _OBJC_CLASS_$_UIAlertAction\n"
-);
+      ".weak_reference _OBJC_CLASS_$_UIAlertAction\n"
+      );

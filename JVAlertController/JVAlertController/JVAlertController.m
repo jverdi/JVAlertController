@@ -496,6 +496,11 @@
           "movt %0, :upper16:(L_OBJC_CLASS_UIAlertController-(LPC1+4))\n"
           "LPC1: add %0, pc" : "=r"(UIAlertControllerClassRef)
           );
+#elif TARGET_CPU_ARM64
+    __asm(
+          "adrp %0, L_OBJC_CLASS_UIAlertController@PAGE\n"
+          "add  %0, %0, L_OBJC_CLASS_UIAlertController@PAGEOFF" : "=r"(UIAlertControllerClassRef)
+          );
 #elif TARGET_CPU_X86_64
     __asm("leaq L_OBJC_CLASS_UIAlertController(%%rip), %0" : "=r"(UIAlertControllerClassRef));
 #elif TARGET_CPU_X86
@@ -519,15 +524,15 @@
 __asm(
 #if defined(__OBJC2__) && __OBJC2__
       ".section        __DATA,__objc_classrefs,regular,no_dead_strip\n"
-#if	TARGET_RT_64_BIT
+    #if	TARGET_RT_64_BIT
       ".align          3\n"
       "L_OBJC_CLASS_UIAlertController:\n"
       ".quad           _OBJC_CLASS_$_UIAlertController\n"
-#else
+    #else
       ".align          2\n"
       "L_OBJC_CLASS_UIAlertController:\n"
       ".long           _OBJC_CLASS_$_UIAlertController\n"
-#endif
+    #endif
 #else
       ".section        __TEXT,__cstring,cstring_literals\n"
       "L_OBJC_CLASS_NAME_UIAlertController:\n"
