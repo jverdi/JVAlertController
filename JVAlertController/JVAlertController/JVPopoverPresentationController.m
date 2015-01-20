@@ -62,7 +62,11 @@
 #endif
     if (UIPopoverPresentationControllerClassRef && *UIPopoverPresentationControllerClassRef == Nil)
     {
-        *UIPopoverPresentationControllerClassRef = objc_duplicateClass(self, "UIPopoverPresentationController", 0);
+        Class UIPopoverPresentationControllerClass = objc_allocateClassPair(self, "UIPopoverPresentationController", 0);
+        if (UIPopoverPresentationControllerClass) {
+            objc_registerClassPair(UIPopoverPresentationControllerClass);
+            *UIPopoverPresentationControllerClassRef = UIPopoverPresentationControllerClass;
+        }
     }
 }
 

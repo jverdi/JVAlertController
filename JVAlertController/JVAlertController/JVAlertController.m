@@ -508,7 +508,11 @@
 #endif
     if (UIAlertControllerClassRef && *UIAlertControllerClassRef == Nil)
     {
-        *UIAlertControllerClassRef = objc_duplicateClass(self, "UIAlertController", 0);
+        Class UIAlertControllerClass = objc_allocateClassPair(self, "UIAlertController", 0);
+        if (UIAlertControllerClass) {
+            objc_registerClassPair(UIAlertControllerClass);
+            *UIAlertControllerClassRef = UIAlertControllerClass;
+        }
     }
 }
 

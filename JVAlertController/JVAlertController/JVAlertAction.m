@@ -73,7 +73,11 @@
 #endif
     if (UIAlertActionClassRef && *UIAlertActionClassRef == Nil)
     {
-        *UIAlertActionClassRef = objc_duplicateClass(self, "UIAlertAction", 0);
+        Class UIAlertActionClass = objc_allocateClassPair(self, "UIAlertAction", 0);
+        if (UIAlertActionClass) {
+            objc_registerClassPair(UIAlertActionClass);
+            *UIAlertActionClassRef = UIAlertActionClass;
+        }
     }
 }
 
