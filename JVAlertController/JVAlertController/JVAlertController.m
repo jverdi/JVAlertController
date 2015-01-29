@@ -250,11 +250,6 @@
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
 }
 
-- (BOOL)isLandscape
-{
-    return UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
-}
-
 - (void)goClose
 {
     if (([self isPad] || self.isCancelButtonPresent) && UIAlertControllerStyleActionSheet == self.preferredStyle) {
@@ -272,7 +267,7 @@
     }
     else {
         CGRect keyboardFrame = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-        self.keyboardHeight = [self isLandscape] ? keyboardFrame.size.width : keyboardFrame.size.height;
+        self.keyboardHeight = MIN(keyboardFrame.size.width, keyboardFrame.size.height);
     }
     
     if (self.preferredStyle == UIAlertControllerStyleAlert) {
