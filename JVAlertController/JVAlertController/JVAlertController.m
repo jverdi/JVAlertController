@@ -287,7 +287,7 @@
         _alertTitleView.font = [JVAlertControllerStyles alertTitleFont];
         _alertMessageView.font = [JVAlertControllerStyles alertMessageFont];
         
-        NSInteger i=0;
+        NSUInteger i=0;
         for (UIButton *button in self.buttons) {
             i++;
             
@@ -303,7 +303,7 @@
         _actionSheetTitleView.font = [JVAlertControllerStyles actionSheetTitleFont];
         _actionSheetMessageView.font = [JVAlertControllerStyles actionSheetMessageFont];
         
-        NSInteger i=0;
+        NSUInteger i=0;
         
         for (UIAlertAction *action in self.actions) {
             
@@ -696,7 +696,7 @@ __asm(
         CGFloat buttonWidth = ([self.actions count] != 2) ? kJVAlertWidth : ceil(kJVAlertWidth / 2.0f);
         CGFloat buttonHeight = kJVAlertButtonHeight - JVAC_PIXEL;
         
-        for (NSInteger i=0; i<[self.actions count]; i++) {
+        for (NSUInteger i=0; i<[self.actions count]; i++) {
             
             if ([self.actions count] != 2 || i != 1) {
                 UIView *buttonSeparator = [self.buttonSeparators objectAtIndex:i];
