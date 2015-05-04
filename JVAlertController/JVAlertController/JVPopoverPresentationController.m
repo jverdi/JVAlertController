@@ -35,7 +35,7 @@
 @property(nonatomic, copy) UIColor *backgroundColor;
 @property(nonatomic, copy) NSArray *passthroughViews;
 @property(nonatomic, readwrite, strong) Class< UIPopoverBackgroundViewMethods > popoverBackgroundViewClass;
-@property(nonatomic, weak) UIPopoverArrowDirection permittedArrowDirections;
+@property(nonatomic, assign) UIPopoverArrowDirection permittedArrowDirections;
 @property(nonatomic, readonly) UIPopoverArrowDirection arrowDirection;
 @property(nonatomic, readwrite, weak) UIPopoverController *jv_legacyPopoverController;
 @end
