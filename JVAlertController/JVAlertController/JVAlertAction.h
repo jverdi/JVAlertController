@@ -24,6 +24,7 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "JVCompatibilityMRC.h"
 
 @interface JVAlertAction : NSObject <NSCopying>
 
@@ -36,7 +37,7 @@
 @end
 
 @interface JVAlertAction ()
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, JV_STRONG_PROPERTY) NSString *title;
 @property (nonatomic) UIAlertActionStyle style;
 @property (nonatomic, copy) void (^handler)(UIAlertAction *action);
 @end

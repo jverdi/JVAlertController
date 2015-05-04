@@ -30,6 +30,7 @@
 #import "JVAlertControllerTextField.h"
 #import "JVAlertTransitionDelegate.h"
 #import "JVActionSheetTransitionDelegate.h"
+#import "JVCompatibilityMRC.h"
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
 
@@ -61,31 +62,31 @@
 @end
 
 @interface JVAlertController ()
-@property (nonatomic, strong) NSArray *actions;
-@property (nonatomic, strong) NSArray *textFields;
-@property (nonatomic, strong) NSArray *textFieldConfigurationHandlers;
+@property (nonatomic, JV_STRONG_PROPERTY) NSArray *actions;
+@property (nonatomic, JV_STRONG_PROPERTY) NSArray *textFields;
+@property (nonatomic, JV_STRONG_PROPERTY) NSArray *textFieldConfigurationHandlers;
 @property (nonatomic) UIAlertControllerStyle preferredStyle;
 
-@property (nonatomic, strong) UIView *alertView;
-@property (nonatomic, strong) UIScrollView *alertScrollView;
-@property (nonatomic, strong) UIScrollView *alertButtonScrollView;
-@property (nonatomic, strong) UILabel *alertTitleView;
-@property (nonatomic, strong) UILabel *alertMessageView;
-@property (nonatomic, strong) JVAlertTransitionDelegate *alertTransitionDelegate;
-@property (nonatomic, strong) NSArray *textFieldWrappers;
+@property (nonatomic, JV_STRONG_PROPERTY) UIView *alertView;
+@property (nonatomic, JV_STRONG_PROPERTY) UIScrollView *alertScrollView;
+@property (nonatomic, JV_STRONG_PROPERTY) UIScrollView *alertButtonScrollView;
+@property (nonatomic, JV_STRONG_PROPERTY) UILabel *alertTitleView;
+@property (nonatomic, JV_STRONG_PROPERTY) UILabel *alertMessageView;
+@property (nonatomic, JV_STRONG_PROPERTY) JVAlertTransitionDelegate *alertTransitionDelegate;
+@property (nonatomic, JV_STRONG_PROPERTY) NSArray *textFieldWrappers;
 
-@property (nonatomic, strong) UIView *actionSheetView;
-@property (nonatomic, strong) UIScrollView *actionSheetScrollView;
-@property (nonatomic, strong) UIScrollView *actionSheetButtonScrollView;
-@property (nonatomic, strong) UILabel *actionSheetTitleView;
-@property (nonatomic, strong) UILabel *actionSheetMessageView;
-@property (nonatomic, strong) JVActionSheetTransitionDelegate *actionSheetTransitionDelegate;
-@property (nonatomic, strong) UIView *actionSheetCancelButtonWrapperView;
-@property (nonatomic, strong) JVAlertControllerButton *actionSheetCancelButton;
+@property (nonatomic, JV_STRONG_PROPERTY) UIView *actionSheetView;
+@property (nonatomic, JV_STRONG_PROPERTY) UIScrollView *actionSheetScrollView;
+@property (nonatomic, JV_STRONG_PROPERTY) UIScrollView *actionSheetButtonScrollView;
+@property (nonatomic, JV_STRONG_PROPERTY) UILabel *actionSheetTitleView;
+@property (nonatomic, JV_STRONG_PROPERTY) UILabel *actionSheetMessageView;
+@property (nonatomic, JV_STRONG_PROPERTY) JVActionSheetTransitionDelegate *actionSheetTransitionDelegate;
+@property (nonatomic, JV_STRONG_PROPERTY) UIView *actionSheetCancelButtonWrapperView;
+@property (nonatomic, JV_STRONG_PROPERTY) JVAlertControllerButton *actionSheetCancelButton;
 
-@property (nonatomic, strong) NSArray *buttons;
-@property (nonatomic, strong) NSArray *buttonSeparators;
-@property (nonatomic, strong) UIView *buttonPairSeparator;
+@property (nonatomic, JV_STRONG_PROPERTY) NSArray *buttons;
+@property (nonatomic, JV_STRONG_PROPERTY) NSArray *buttonSeparators;
+@property (nonatomic, JV_STRONG_PROPERTY) UIView *buttonPairSeparator;
 
 @property (nonatomic, getter=isCancelButtonPresent) BOOL cancelButtonPresent;
 
@@ -93,7 +94,7 @@
 
 @property (nonatomic) CGFloat keyboardHeight;
 
-@property (nonatomic, strong) UIPopoverPresentationController *popoverPresentationController;
+@property (nonatomic, JV_STRONG_PROPERTY) UIPopoverPresentationController *popoverPresentationController;
 @end
 
 @interface JVAlertController (AlertView)
@@ -112,10 +113,17 @@
                           preferredStyle:(UIAlertControllerStyle)preferredStyle
 {
     JVAlertController *controller = [JVAlertController new];
-    controller.title = [title copy];
-    controller.message = [message copy];
     controller.preferredStyle = preferredStyle;
-    return controller;
+
+    NSString *titleCopy = [title copy];
+    controller.title = titleCopy;
+    JV_RELEASE_OBJECT(titleCopy);
+
+    NSString *messageCopy = [message copy];
+    controller.message = messageCopy;
+    JV_RELEASE_OBJECT(messageCopy);
+
+    return JV_AUTORELEASE_OBJECT(controller);
 }
 
 - (instancetype)init
@@ -124,12 +132,18 @@
     if (self) {
         self.actions = @[];
         self.textFields = @[];
-        self.textFieldConfigurationHandlers = [NSArray new];
         self.preferredStyle = UIAlertControllerStyleAlert;
-        self.popoverPresentationController = [UIPopoverPresentationController new];
         self.inPopover = NO;
         self.definesPresentationContext = YES;
         self.modalPresentationStyle = UIModalPresentationCustom;
+
+        NSArray *newArray = [NSArray new];
+        self.textFieldConfigurationHandlers = newArray;
+        JV_RELEASE_OBJECT(newArray);
+
+        UIPopoverPresentationController *newPopoverController = [UIPopoverPresentationController new];
+        self.popoverPresentationController = newPopoverController;
+        JV_RELEASE_OBJECT(newPopoverController);
     }
     return self;
 }
@@ -137,6 +151,7 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    JV_SUPER_DEALLOC;
 }
 
 - (void)viewDidLoad
@@ -165,6 +180,7 @@
     
     UITapGestureRecognizer *closeGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goClose)];
     [self.view addGestureRecognizer:closeGR];
+    JV_RELEASE_OBJECT(closeGR);
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShowOrHide:)
@@ -224,9 +240,11 @@
     if (!configurationHandler) {
         configurationHandler = ^(UITextField *textField){};
     }
-    
+
+    void (^copyHandler)(UITextField *textField) = [configurationHandler copy];
     self.textFieldConfigurationHandlers =
-    [self.textFieldConfigurationHandlers arrayByAddingObject:[configurationHandler copy]];
+    [self.textFieldConfigurationHandlers arrayByAddingObject:copyHandler];
+    JV_RELEASE_OBJECT(copyHandler);
 }
 
 #pragma mark - Private
@@ -236,11 +254,15 @@
     _preferredStyle = preferredStyle;
     
     if (UIAlertControllerStyleAlert == self.preferredStyle) {
-        self.alertTransitionDelegate = [JVAlertTransitionDelegate new];
+        JVAlertTransitionDelegate *newDelegate = [JVAlertTransitionDelegate new];
+        self.alertTransitionDelegate = newDelegate;
+        JV_RELEASE_OBJECT(newDelegate);
         self.transitioningDelegate = self.alertTransitionDelegate;
     }
     else {
-        self.actionSheetTransitionDelegate = [JVActionSheetTransitionDelegate new];
+        JVActionSheetTransitionDelegate *newDelegate = [JVActionSheetTransitionDelegate new];
+        self.actionSheetTransitionDelegate = newDelegate;
+        JV_RELEASE_OBJECT(newDelegate);
         self.transitioningDelegate = self.actionSheetTransitionDelegate;
     }
 }
@@ -549,6 +571,7 @@ __asm(
         bgView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
         bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.alertView addSubview:bgView];
+        JV_RELEASE_OBJECT(bgView);
     }
     
     NSString *title = self.title ? self.title : self.message;
@@ -572,10 +595,13 @@ __asm(
         
         [textFields addObject:field.textField];
         [textFieldWrappers addObject:field];
+        JV_RELEASE_OBJECT(field);
     }
     
-    self.textFields = [textFields copy];
-    self.textFieldWrappers = [textFieldWrappers copy];
+    self.textFields = textFields;
+    self.textFieldWrappers = textFieldWrappers;
+    JV_RELEASE_OBJECT(textFields);
+    JV_RELEASE_OBJECT(textFieldWrappers);
     
     NSMutableArray *buttons = [NSMutableArray new];
     NSMutableArray *buttonSeparators = [NSMutableArray new];
@@ -590,6 +616,7 @@ __asm(
                 buttonSeparator.backgroundColor = [JVAlertControllerStyles alertButtonSeparatorBackgroundColor];
                 [self.alertButtonScrollView addSubview:buttonSeparator];
                 [buttonSeparators addObject:buttonSeparator];
+                JV_RELEASE_OBJECT(buttonSeparator);
             }
                 
             JVAlertControllerButton *button = [JVAlertControllerButton new];
@@ -606,6 +633,8 @@ __asm(
             [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
             [button addTarget:self action:@selector(performAction:) forControlEvents:UIControlEventTouchUpInside];
             [buttons addObject:button];
+            JV_RELEASE_OBJECT(button);
+            button = [buttons lastObject];
             
             i++;
             
@@ -632,15 +661,25 @@ __asm(
             [self.alertButtonScrollView addSubview:button];
         }
         
-        self.buttons = [buttons copy];
-        self.buttonSeparators = [buttonSeparators copy];
-        
+        NSArray *buttonsCopy = [buttons copy];
+        self.buttons = buttonsCopy;
+        JV_RELEASE_OBJECT(buttonsCopy);
+
+        NSArray *buttonSeparatorsCopy = [buttonSeparators copy];
+        self.buttonSeparators = buttonSeparatorsCopy;
+        JV_RELEASE_OBJECT(buttonSeparatorsCopy);
+
         if ([self.actions count] == 2) {
-            self.buttonPairSeparator = [UIView new];
+            UIView *newView = [UIView new];
+            self.buttonPairSeparator = newView;
+            JV_RELEASE_OBJECT(newView);
             self.buttonPairSeparator.backgroundColor = [JVAlertControllerStyles alertButtonSeparatorBackgroundColor];
             [self.alertButtonScrollView addSubview:self.buttonPairSeparator];
         }
     }
+    JV_RELEASE_OBJECT(buttons);
+    JV_RELEASE_OBJECT(buttonSeparators);
+
 }
 
 - (void)layoutAlertView
@@ -754,12 +793,14 @@ __asm(
 {
     NSInteger buttonIndex = button.tag;
     
-    JVAlertAction *action = self.actions[buttonIndex];
+    JV_FOR_BLOCK JVAlertAction *action = self.actions[buttonIndex];
+    JV_RETAIN_OBJECT(action);
     
     [self dismissViewControllerAnimated:YES completion:^{
         if (action.handler) {
             action.handler((UIAlertAction *)action);
         }
+        JV_RELEASE_OBJECT(action);
     }];
 }
 
@@ -772,6 +813,7 @@ __asm(
         bgView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
         bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.actionSheetView addSubview:bgView];
+        JV_RELEASE_OBJECT(bgView);
     }
     
     NSString *title = self.title && self.message ? self.title : self.message;
@@ -803,6 +845,7 @@ __asm(
             buttonSeparator.backgroundColor = [JVAlertControllerStyles actionSheetButtonSeparatorBackgroundColor];
             [self.actionSheetButtonScrollView addSubview:buttonSeparator];
             [buttonSeparators addObject:buttonSeparator];
+            JV_RELEASE_OBJECT(buttonSeparator);
             
             JVAlertControllerButton *button = [JVAlertControllerButton new];
             button.tag = i;
@@ -820,6 +863,8 @@ __asm(
             [button addTarget:self action:@selector(performAction:) forControlEvents:UIControlEventTouchUpInside];
             
             [buttons addObject:button];
+            JV_RELEASE_OBJECT(button);
+            button = [buttons lastObject];
             
             i++;
             
@@ -857,11 +902,19 @@ __asm(
             [[buttonSeparators lastObject] removeFromSuperview];
             [buttonSeparators removeLastObject];
         }
-        
-        self.buttons = [buttons copy];
-        self.buttonSeparators = [buttonSeparators copy];
+
+        NSArray *buttonsCopy = [buttons copy];
+        self.buttons = buttonsCopy;
+        JV_RELEASE_OBJECT(buttonsCopy);
+
+        NSArray *buttonSeparatorsCopy = [buttonSeparators copy];
+        self.buttonSeparators = buttonSeparatorsCopy;
+        JV_RELEASE_OBJECT(buttonSeparatorsCopy);
+
+        JV_RELEASE_OBJECT(buttons);
+        JV_RELEASE_OBJECT(buttonSeparators);
     }
-    
+
     if (self.actionSheetCancelButton) {
         if (1 == [self.actions count]) {
             [self.actionSheetButtonScrollView addSubview:self.actionSheetCancelButton];
@@ -938,7 +991,7 @@ __asm(
         i=0;
         
         NSInteger j=0;
-        JVAlertControllerButton *button;
+        JVAlertControllerButton *button = nil;
         
         for (UIAlertAction *action in self.actions) {
             if (UIAlertActionStyleCancel != action.style) {

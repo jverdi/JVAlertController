@@ -24,6 +24,7 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "JVAlertAction.h"
+#import "JVCompatibilityMRC.h"
 #import <objc/runtime.h>
 
 @implementation JVAlertAction
@@ -31,11 +32,18 @@
 + (instancetype)actionWithTitle:(NSString *)title style:(UIAlertActionStyle)style handler:(void (^)(UIAlertAction *action))handler
 {
     JVAlertAction *action = [JVAlertAction new];
-    action.title = [title copy];
     action.style = style;
-    action.handler = [handler copy];
     action.enabled = YES;
-    return action;
+
+    NSString *copyTitle = [title copy];
+    action.title = copyTitle;
+    JV_RELEASE_OBJECT(copyTitle);
+
+    void (^copyHandler)(UIAlertAction *action) = [handler copy];
+    action.handler = copyHandler;
+    JV_RELEASE_OBJECT(copyHandler);
+
+    return JV_AUTORELEASE_OBJECT(action);
 }
 
 - (id)copyWithZone:(NSZone *)zone

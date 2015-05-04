@@ -23,12 +23,13 @@
 //  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "JVCompatibilityMRC.h"
 #import "JVAlertControllerStyles.h"
 #import "JVActionSheetTransitionDelegate.h"
 
 @interface JVActionSheetTransitionDelegate ()
 @property (nonatomic, getter=isPresenting) BOOL presenting;
-@property (nonatomic, strong) UIView *obscureView;
+@property (nonatomic, JV_STRONG_PROPERTY) UIView *obscureView;
 @end
 
 @implementation JVActionSheetTransitionDelegate
@@ -40,7 +41,9 @@
     self.presenting = YES;
     
     if (!self.obscureView) {
-        self.obscureView = [UIView new];
+        UIView *newView = [UIView new];
+        self.obscureView = newView;
+        JV_RELEASE_OBJECT(newView);
         self.obscureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.obscureView.backgroundColor = [JVAlertControllerStyles actionSheetObscureViewBackgroundColor];
     }
@@ -86,8 +89,8 @@
     
     BOOL isPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
     
-    __weak typeof(self) weakSelf = self;
-    
+    JV_WEAK_REFERENCE_FOR_BLOCK typeof(self) weakSelf = self;
+
     if (self.isPresenting) {
         if (fromViewController.navigationController) {
             fromViewController.navigationController.view.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;

@@ -25,10 +25,11 @@
 
 #import "JVAlertControllerStyles.h"
 #import "JVAlertTransitionDelegate.h"
+#import "JVCompatibilityMRC.h"
 
 @interface JVAlertTransitionDelegate ()
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
-@property (nonatomic, strong) UIView *obscureView;
+@property (nonatomic, JV_STRONG_PROPERTY) UIView *obscureView;
 @end
 
 @implementation JVAlertTransitionDelegate
@@ -40,7 +41,9 @@
     self.presenting = YES;
     
     if (!self.obscureView) {
-        self.obscureView = [UIView new];
+        UIView *newView = [UIView new];
+        self.obscureView = newView;
+        JV_RELEASE_OBJECT(newView);
         self.obscureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.obscureView.backgroundColor = [JVAlertControllerStyles alertObscureViewBackgroundColor];
     }
@@ -83,7 +86,7 @@
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
-    __weak typeof(self) weakSelf = self;
+    JV_WEAK_REFERENCE_FOR_BLOCK typeof(self) weakSelf = self;
     
     if (self.isPresenting) {
         if (fromViewController.navigationController) {
