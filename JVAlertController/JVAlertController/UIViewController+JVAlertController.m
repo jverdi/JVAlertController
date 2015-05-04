@@ -152,8 +152,19 @@ static void JVAC_DismissViewController(UIViewController *self,
         && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         
         [self.JVAC_popoverHostController.JVAC_popoverController dismissPopoverAnimated:flag];
-        self.JVAC_popoverHostController.JVAC_popoverController = nil;
-        self.JVAC_popoverHostController = nil;
+        // call completion immediatedly
+        if (completion != NULL) {
+            @try {
+                completion();
+            } @finally {
+                self.JVAC_popoverHostController.JVAC_popoverController = nil;
+                self.JVAC_popoverHostController = nil;
+            }
+        } else {
+            self.JVAC_popoverHostController.JVAC_popoverController = nil;
+            self.JVAC_popoverHostController = nil;
+        }
+
         return;
     }
     
