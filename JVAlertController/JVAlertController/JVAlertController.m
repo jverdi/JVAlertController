@@ -974,7 +974,6 @@ __asm(
         self.actionSheetScrollView.contentSize = CGSizeMake(kJVActionSheetWidth, top);
     }
     
-    top = 0.0f;
     
     CGFloat buttonWidth = kJVActionSheetWidth;
     CGFloat buttonHeight = kJVActionSheetButtonHeight - JVAC_PIXEL;
