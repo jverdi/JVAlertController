@@ -119,7 +119,14 @@ static void JVAC_PresentViewController(UIViewController *self,
             
             self.JVAC_popoverController =
             [[UIPopoverController alloc] initWithContentViewController:viewControllerToPresent];
-            
+
+            if ([ppc respondsToSelector:@selector(setJv_legacyPopoverController:)]) {
+                [ppc performSelector:@selector(setJv_legacyPopoverController:) withObject:self.JVAC_popoverController];
+            }
+            if ([ppc conformsToProtocol:@protocol(UIPopoverControllerDelegate)]) {
+                self.JVAC_popoverController.delegate = (id<UIPopoverControllerDelegate>)ppc;
+            }
+
             viewControllerToPresent.JVAC_popoverHostController = self;
             
             if (ppc.barButtonItem) {
