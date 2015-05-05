@@ -26,13 +26,91 @@
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
 
-@interface JVPopoverPresentationController : NSObject
+@interface JVPopoverPresentationController : NSObject <UIPopoverControllerDelegate>
 @property (nonatomic, strong) UIView *sourceView;
 @property (nonatomic) CGRect sourceRect;
 @property (nonatomic, strong) UIBarButtonItem *barButtonItem;
+@property (nonatomic, weak) id<UIPopoverPresentationControllerDelegate> delegate;
+@property(nonatomic, readwrite) UIEdgeInsets popoverLayoutMargins;
+@property(nonatomic, copy) UIColor *backgroundColor;
+@property(nonatomic, copy) NSArray *passthroughViews;
+@property(nonatomic, readwrite, strong) Class< UIPopoverBackgroundViewMethods > popoverBackgroundViewClass;
+@property(nonatomic, assign) UIPopoverArrowDirection permittedArrowDirections;
+@property(nonatomic, readonly) UIPopoverArrowDirection arrowDirection;
+@property(nonatomic, readwrite, weak) UIPopoverController *jv_legacyPopoverController;
 @end
 
 @implementation JVPopoverPresentationController
+
+@dynamic popoverLayoutMargins, backgroundColor, passthroughViews, popoverBackgroundViewClass, arrowDirection;
+
+- (UIEdgeInsets)popoverLayoutMargins {
+    return self.jv_legacyPopoverController.popoverLayoutMargins;
+}
+
+- (void)setPopoverLayoutMargins:(UIEdgeInsets)newLayoutMargins {
+    self.jv_legacyPopoverController.popoverLayoutMargins = newLayoutMargins;
+}
+
+- (UIColor*)backgroundColor {
+    return self.jv_legacyPopoverController.backgroundColor;
+}
+
+- (void)setBackgroundColor:(UIColor*)newColor {
+    self.jv_legacyPopoverController.backgroundColor = newColor;
+}
+
+- (NSArray*)passthroughViews {
+    return self.jv_legacyPopoverController.passthroughViews;
+}
+
+- (void)setPassthroughViews:(NSArray*)newViews {
+    self.jv_legacyPopoverController.passthroughViews = newViews;
+}
+
+- (Class< UIPopoverBackgroundViewMethods >)popoverBackgroundViewClass {
+    return self.jv_legacyPopoverController.popoverBackgroundViewClass;
+}
+
+- (void)setPopoverBackgroundViewClass:(Class< UIPopoverBackgroundViewMethods >)newClass {
+    self.jv_legacyPopoverController.popoverBackgroundViewClass = newClass;
+}
+
+- (UIPopoverArrowDirection)arrowDirection {
+    return self.jv_legacyPopoverController.popoverArrowDirection;
+}
+
+- (void)popoverController:(UIPopoverController *)popoverController
+willRepositionPopoverToRect:(inout CGRect *)rect
+                   inView:(inout UIView **)view {
+
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(popoverPresentationController:willRepositionPopoverToRect:inView:)]) {
+
+        [self.delegate popoverPresentationController:(UIPopoverPresentationController*)self
+                         willRepositionPopoverToRect:rect
+                                              inView:view
+         ];
+    }
+}
+
+- (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController {
+
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(popoverPresentationControllerShouldDismissPopover:)]) {
+
+        return [self.delegate popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController*)self];
+    }
+    return YES;
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(popoverPresentationControllerDidDismissPopover:)]) {
+
+        [self.delegate popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController*)self];
+    }
+}
+
+
 
 // copy the JVPopoverPresentationController implementation into UIPopoverPresentationController's place on iOS 7
 // adapted from Cédric Luthi's NSUUID project: https://github.com/0xced/NSUUID
