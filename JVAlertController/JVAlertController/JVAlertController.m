@@ -123,7 +123,8 @@
     controller.message = messageCopy;
     JV_RELEASE_OBJECT(messageCopy);
 
-    return JV_AUTORELEASE_OBJECT(controller);
+    JV_AUTORELEASE_OBJECT(controller);
+    return controller;
 }
 
 - (instancetype)init

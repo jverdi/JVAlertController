@@ -43,7 +43,8 @@
     action.handler = copyHandler;
     JV_RELEASE_OBJECT(copyHandler);
 
-    return JV_AUTORELEASE_OBJECT(action);
+    JV_AUTORELEASE_OBJECT(action);
+    return action;
 }
 
 - (id)copyWithZone:(NSZone *)zone
