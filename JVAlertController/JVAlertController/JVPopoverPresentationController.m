@@ -45,7 +45,7 @@
 
 @dynamic popoverLayoutMargins, backgroundColor, passthroughViews, popoverBackgroundViewClass, arrowDirection;
 
-- (UIEdgeInsets)getPopoverLayoutMargins {
+- (UIEdgeInsets)popoverLayoutMargins {
     return self.jv_legacyPopoverController.popoverLayoutMargins;
 }
 
@@ -53,7 +53,7 @@
     self.jv_legacyPopoverController.popoverLayoutMargins = newLayoutMargins;
 }
 
-- (UIColor*)getBackgroundColor {
+- (UIColor*)backgroundColor {
     return self.jv_legacyPopoverController.backgroundColor;
 }
 
@@ -61,7 +61,7 @@
     self.jv_legacyPopoverController.backgroundColor = newColor;
 }
 
-- (NSArray*)getPassthroughViews {
+- (NSArray*)passthroughViews {
     return self.jv_legacyPopoverController.passthroughViews;
 }
 
@@ -69,7 +69,7 @@
     self.jv_legacyPopoverController.passthroughViews = newViews;
 }
 
-- (Class< UIPopoverBackgroundViewMethods >)getPopoverBackgroundViewClass {
+- (Class< UIPopoverBackgroundViewMethods >)popoverBackgroundViewClass {
     return self.jv_legacyPopoverController.popoverBackgroundViewClass;
 }
 
@@ -77,7 +77,7 @@
     self.jv_legacyPopoverController.popoverBackgroundViewClass = newClass;
 }
 
-- (UIPopoverArrowDirection)getArrowDirection {
+- (UIPopoverArrowDirection)arrowDirection {
     return self.jv_legacyPopoverController.popoverArrowDirection;
 }
 
