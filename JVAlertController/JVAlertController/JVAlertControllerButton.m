@@ -36,6 +36,7 @@
     if (self) {
         [self addObserver:self forKeyPath:@"highlighted" options:NSKeyValueObservingOptionNew context:NULL];
         _originalBackgroundColor = self.backgroundColor;
+        JV_RETAIN_OBJECT(_originalBackgroundColor);
     }
     return self;
 }
@@ -43,12 +44,16 @@
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"highlighted"];
+    JV_RELEASE_OBJECT(_originalBackgroundColor);
+    JV_SUPER_DEALLOC;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
     [super setBackgroundColor:backgroundColor];
+    JV_RELEASE_OBJECT(_originalBackgroundColor);
     _originalBackgroundColor = backgroundColor;
+    JV_RETAIN_OBJECT(_originalBackgroundColor);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

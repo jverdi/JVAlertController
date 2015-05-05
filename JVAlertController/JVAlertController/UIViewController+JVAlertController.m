@@ -26,6 +26,7 @@
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
 #import "UIViewController+JVAlertController.h"
+#import "JVCompatibilityMRC.h"
 
 #define JVAC_SYSTEM_VERSION_GTE(v) \
 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -116,9 +117,11 @@ static void JVAC_PresentViewController(UIViewController *self,
             }
             
             UIPopoverPresentationController *ppc = [vc popoverPresentationController];
-            
-            self.JVAC_popoverController =
+
+            UIPopoverController *newPopoverController =
             [[UIPopoverController alloc] initWithContentViewController:viewControllerToPresent];
+            self.JVAC_popoverController = newPopoverController;
+            JV_RELEASE_OBJECT(newPopoverController);
 
             if ([ppc respondsToSelector:@selector(setJv_legacyPopoverController:)]) {
                 [ppc performSelector:@selector(setJv_legacyPopoverController:) withObject:self.JVAC_popoverController];

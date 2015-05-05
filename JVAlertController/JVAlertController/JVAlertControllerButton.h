@@ -24,9 +24,10 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "JVCompatibilityMRC.h"
 
 @interface JVAlertControllerButton : UIButton
 
-@property (nonatomic, strong) UIColor *highlightedBackgroundColor;
+@property (nonatomic, JV_STRONG_PROPERTY) UIColor *highlightedBackgroundColor;
 
 @end

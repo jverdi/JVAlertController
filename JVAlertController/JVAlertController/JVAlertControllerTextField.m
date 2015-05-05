@@ -25,9 +25,10 @@
 
 #import "JVAlertControllerStyles.h"
 #import "JVAlertControllerTextField.h"
+#import "JVCompatibilityMRC.h"
 
 @interface JVAlertControllerTextField ()
-@property (nonatomic, strong) UITextField * textField;
+@property (nonatomic, JV_STRONG_PROPERTY) UITextField * textField;
 @end
 
 @implementation JVAlertControllerTextField
@@ -41,7 +42,9 @@
         self.layer.borderWidth = [JVAlertControllerStyles alertTextFieldBorderWidth];
         
         [self setFrame:frame];
-        self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
+        UITextField *newTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+        self.textField = newTextField;
+        JV_RELEASE_OBJECT(newTextField);
         self.textField.backgroundColor = [UIColor clearColor];
         self.textField.font = [JVAlertControllerStyles alertTextFieldFont];
         [self addSubview:self.textField];
