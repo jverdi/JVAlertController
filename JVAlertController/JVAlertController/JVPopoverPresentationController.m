@@ -28,6 +28,7 @@
 #import "JVCompatibilityMRC.h"
 
 @interface JVPopoverPresentationController : NSObject <UIPopoverControllerDelegate>
+<<<<<<< HEAD
 @property (nonatomic, JV_STRONG_PROPERTY) UIView *sourceView;
 @property (nonatomic) CGRect sourceRect;
 @property (nonatomic, JV_STRONG_PROPERTY) UIBarButtonItem *barButtonItem;
