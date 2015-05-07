@@ -120,9 +120,13 @@ static void JVAC_PresentViewController(UIViewController *self,
             self.JVAC_popoverController =
             [[UIPopoverController alloc] initWithContentViewController:viewControllerToPresent];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
             if ([ppc respondsToSelector:@selector(setJv_legacyPopoverController:)]) {
                 [ppc performSelector:@selector(setJv_legacyPopoverController:) withObject:self.JVAC_popoverController];
             }
+#pragma clang diagnostic pop
+            
             if ([ppc conformsToProtocol:@protocol(UIPopoverControllerDelegate)]) {
                 self.JVAC_popoverController.delegate = (id<UIPopoverControllerDelegate>)ppc;
             }
