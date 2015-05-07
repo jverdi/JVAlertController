@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "JVAlertController"
-s.version      = "1.0.0"
+s.version      = "1.0.1"
 s.summary      = "JVAlertController is an API-compatible backport of UIAlertController for iOS 7"
 s.homepage     = "http://github.com/jverdi/JVAlertController"
 s.license      = { :type => 'MIT', :file => 'LICENSE' }
